@@ -1,0 +1,51 @@
+<% if user_signed_in? %>
+ <div class="logo-area">
+  <a class="navbar-brand navbar-brand-primary" href="<%= root_url %>">
+    <!-- <img class="show-on-collapse img-logo-white" alt="Paper" src="assets/img/logo-icon-white.png"> -->
+    <!-- <img class="show-on-collapse img-logo-dark" alt="Paper" src="assets/img/logo-icon-dark.png"> -->
+    <!-- <img class="img-white" alt="Paper" src="assets/img/logo-white.png"> -->
+    <!-- <img class="img-dark" alt="Paper" src="assets/img/logo-dark.png"> -->
+  </a>
+
+  <span id="trigger-sidebar" class="toolbar-trigger toolbar-icon-bg stay-on-search">
+    <a data-toggle="tooltips" data-placement="right" title="Toggle Sidebar">
+      <span class="icon-bg">
+        <i class="material-icons">menu</i>
+      </span>
+    </a>
+  </span>
+
+  <span id="trigger-search" class="toolbar-trigger toolbar-icon-bg ov-h">
+    <a data-toggle="tooltips" data-placement="right" title="Toggle Sidebar">
+      <span class="icon-bg">
+        <i class="material-icons">search</i>
+      </span>
+    </a>
+  </span>
+
+  <div id="search-box">
+    <input class="form-control" type="text" placeholder="Search..." id="search-input"></input>
+  </div>
+</div><!-- logo-area -->
+
+<ul class="nav navbar-nav toolbar pull-right">
+  <li class="toolbar-icon-bg appear-on-search ov-h" id="trigger-search-close">
+    <a class="toggle-fullscreen"><span class="icon-bg">
+      <i class="material-icons">close</i>
+    </span></i></a>
+  </li>
+</ul>
+
+<% else %>
+  <ul class="nav navbar-nav toolbar pull-right">
+    <div class="collapse navbar-collapse large-icons-nav" id="horizontal-navbar">
+      <ul class="nav navbar-nav">
+        <li class=""><a href="<%= url_for([:new, :user, :registration])%>"><i class="fa fa-home"></i><span>Sign Up Free</span></a></li>
+        <li class=""><a href="<%= url_for([:new, :user, :session])%>"><i class="fa fa-columns"></i> <span>Log In</span></a></li>
+        <li><a href="<%= root_url %>"><i class="fa fa-user"></i> <span>API</span></a></li>
+        <li><a href="<%= root_url %>"><i class="fa fa-pencil"></i> <span>Status</span></a></li>
+      </ul>
+    </div>
+  </ul>
+<% end %>
+

@@ -1,0 +1,13 @@
+<% if user_signed_in? %>
+  <% if @current_business.present? %>
+    <li class="animate <%= activate_plan %>"><%= link_to 'PLANS', [@current_business, :plans] %></li>
+    <li class="animate <%= activate_customer %>"><%= link_to 'CUSTOMERS', [@current_business, :customers] %></li>
+    <li class="animate <%= activate_subscription %>"><%= link_to 'SUBSCRIPTIONS', [@current_business, :subscriptions] %></li>
+    <li class="animate <%= activate_coupon %>"><%= link_to 'COUPONS', [@current_business, :coupons] %></li>
+    <li class="animate <%= activate_invoice %>"><%= link_to 'INVOICES', [@current_business, :invoices] %></li>
+    <li class="animate <%= activate_transaction %>"><%= link_to 'TRANSACTIONS', [:transactions, @current_business] %></li>
+  <% end %>
+<% else %>
+  <li class="animate"><%= link_to "Sign Up", [:new, :user, :registration] %></li>
+  <li class="animate"><%= link_to "Log In", [:new, :user, :session] %></li>
+<% end %>

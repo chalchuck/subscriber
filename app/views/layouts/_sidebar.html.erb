@@ -1,0 +1,86 @@
+<div class="static-sidebar-wrapper  sidebar-blue">
+  <div class="static-sidebar">
+    <div class="sidebar">
+
+      <div class="widget" id="widget-profileinfo">
+        <div class="widget-body">
+          <div class="userinfo ">
+            <div class="avatar pull-left">
+              <%#= image_tag gravatar_url(current_user.try(:email), 64) %>
+            </div>
+            <div class="info">
+              <span class="username"><%= current_user.try(:name) %> </span>
+              <span class="useremail"><%= current_user.try(:email) %> </span>
+            </div>
+
+            <div class="acct-dropdown clearfix dropdown">
+              <span class="pull-left"><span class="online-status online"></span>Online</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="widget stay-on-collapse" id="widget-sidebar">
+        <nav role="navigation" class="widget-body">
+          <ul class="acc-menu">
+
+            <li class="nav-separator"><span>Navigation</span></li>
+            <% if @current_business.present? %>
+            <li>
+              <a class="withripple" href="<%= root_url %>"><span class="icon">
+              <i class="material-icons">home</i></span><span>Dashboard</span></a>
+            </li>
+
+            <li>
+              <a class="withripple" href="<%= url_for(@current_business) %>"><span class="icon">
+              <i class="material-icons">business</i></span><span>My Business</span></a>
+            </li>
+
+            <li>
+              <a class="withripple" href="<%= url_for([@current_business, :plans]) %>"><span class="icon">
+              <i class="material-icons">extension</i></span><span>Plans</span></a>
+            </li>
+
+            <li>
+              <a class="withripple" href="<%= url_for([@current_business, :subscriptions]) %>"><span class="icon">
+              <i class="material-icons">donut_large</i></span><span>Subscriptions</span></a>
+            </li>
+
+            <li>
+              <a class="withripple" href="<%= url_for([@current_business, :invoices]) %>"><span class="icon">
+              <i class="material-icons">pages</i></span><span>Invoices</span></a>
+            </li>
+
+            <li>
+              <a class="withripple" href="<%= url_for([@current_business, :coupons]) %>"><span class="icon">
+              <i class="material-icons">inbox</i></span><span>Coupons</span></a>
+            </li>
+
+            <li>
+              <a class="withripple" href="<%= url_for([:transactions, @current_business]) %>"><span class="icon">
+              <i class="material-icons">dashboard</i></span><span>Transactions</span></a>
+            </li>
+
+            <li>
+              <a class="withripple" href="<%= url_for([@current_business, :customers]) %>"><span class="icon">
+              <i class="material-icons">people</i></span><span>Customers</span></a>
+            </li>
+
+            <li>
+              <a class="withripple" href="/bg"><span class="icon">
+              <i class="material-icons">power</i></span><span>SidekiqWeb</span></a>
+            </li>
+            <% end %>
+
+            <li class="nav-separator"><span>ACTIONS</span></li>
+            <li>
+              <%= link_to  destroy_user_session_path, method: 'delete' do %>
+                <span class="icon"><i class="material-icons">exit_to_app</i></span><span>Signout</span></a>
+              <% end %>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,5 @@
+<% if @organization.present? && !@organization.new_record? %>
+	<ol class="breadcrumb">
+	  <%= render_breadcrumbs %>
+	</ol>
+<% end %>

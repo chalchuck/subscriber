@@ -1,0 +1,23 @@
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <div class="panel panel-default">
+
+      <div class="panel-heading">
+        <h3>Make changes to your coupon</h3>
+      </div>
+
+      <div class="panel-body">
+      	<%= simple_form_for([@current_business, @current_coupon]) do |f| %>
+      	  <%= f.input :duration,
+      	  								label: false,
+      	                  collection: Coupon::DURATION,
+      	                  required: false,
+      	                  disabled: true,
+      	                  input_html: {class: 'select-duration'} %>
+      	      <%= render 'form', f: f %>
+      	  <%= render "form_buttons", placeholder: "coupon" %>
+      	<% end %>
+      </div>
+    </div>
+  </div>
+</div>

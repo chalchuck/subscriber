@@ -1,0 +1,21 @@
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3>Make changes to your plan</h3>
+      </div>
+
+      <div class="panel-body">
+      	<%= simple_form_for([@current_business, @current_plan]) do |f| %>
+      	  <%= f.input :interval,
+  	                  label: "Billing Interval",
+  	                  collection: Plan::INTERVALS,
+  	                  required: false,
+  	                  input_html: {class: 'select-interval'}, disabled: true %>
+      	  <%= render 'form', f: f %>
+      	  <%= render "form_buttons", placeholder: "plan" %>
+      	<% end %>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,15 @@
+<%= f.input :name,
+            autofocus: true,
+            label: false,
+            required: false,
+            hint: I18n.t('plan.name.placeholder'),
+            placeholder: I18n.t('plan.name.placeholder') %>
+<%= f.input :amount,
+            required: false,
+            hint:  I18n.t('plan.amount.placeholder'),
+            placeholder:  I18n.t('plan.amount.placeholder') %>
+<%= f.input :description,
+            required: false,
+            placeholder: "A payent for service A",
+            label: "This is what will appear in the invoice"
+            %>

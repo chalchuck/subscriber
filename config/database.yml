@@ -1,0 +1,22 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  username: postgres
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+development:
+  <<: *default
+  password: 92033
+  database: subscribe_development
+
+test:
+  <<: *default
+  password: 92033
+  database: subscribe_test
+
+production:
+  <<: *default
+  host: 'db.orta.xyz'
+  database: subscribe_production
+  username: postgres
+  password: lazyg33kg33k

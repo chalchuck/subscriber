@@ -1,0 +1,43 @@
+<div class="row">
+  <div class="col-sm-12">
+    <div class="panel panel-sky" data-widget='{"draggable": "false"}'>
+      <div class="panel-heading">
+        <h3>PLANS</h3>
+      </div>
+
+      <div class="panel-body">
+        <%= page_entries_info @plans %>
+
+        <%= link_to [:new, @current_business, :plan], class: "pull-right btn btn-success btn-raised" do %>
+          <i class="material-icons">done</i> plan
+        <% end %>
+      </div>
+
+      <% if @plans.any? %>
+        <div class="infinite-table">
+          <div class="table-responsive">
+            <table class="table table-hover">
+              <tr>
+                <th>PLAN ID</th>
+                <th>NAME</th>
+                <th>INTERVAL</th>
+                <th>CURRENCY</th>
+                <th>AMOUNT</th>
+                <th>CREATED ON</th>
+                <th colspan="2"></th>
+              </tr>
+
+              <% @plans.each do |plan| %>
+                <%= render 'plan', plan: plan %>
+              <% end %>
+            </table>
+
+            <div class="pagination">
+              <%= paginate @plans, theme: 'bootstrap4' %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

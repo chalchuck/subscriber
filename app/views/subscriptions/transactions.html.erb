@@ -1,0 +1,5 @@
+<div class="subscribe-panel">
+  <% if @transactions.any? %>
+    <%= render 'transactions', transactions: @transactions %>
+  <% end %>
+</div>

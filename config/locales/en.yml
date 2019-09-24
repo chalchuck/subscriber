@@ -1,0 +1,107 @@
+en:
+  hello: "Hello world"
+
+  bad_credentials: "Bad Credentials"
+  not_found: "Resource not found"
+  invalid_params: "Parameters missing the correct object"
+  placeholder:
+    email: "Your email address"
+  coupon:
+    only_one: "You can only have amount off or percent off not both"
+    business:
+      req: "A business is required for a coupon to be created"
+    percent_off:
+      req: "How much percent off is this coupon"
+    amount_off:
+      req: "How much amount off is this coupon"
+    duration:
+      req: "How long will this coupon last for?"
+      invalid: "Your selection for duration is invalid"
+      exists: "A similar coupon exists"
+  business:
+    single_permit: "You already have a Business. You can not create more than one business."
+    intro: "Register your business to configure recuring payments"
+
+  save_changes: "Save changes"
+  plans_placeholder: "Search your plans for..."
+  customer_placeholder: "Search your customers for..."
+  subscriptions_placeholder: "Search your subscriptions for..."
+
+  schedules:
+    subs:
+      req: "A subscription object is required"
+    recurrence_interval:
+      req: "Kindly, provide a recurrence interval"
+    scheduled:
+      req: "When is this schedule supposed to kick off?"
+
+  invoice:
+    customer:
+      req: "Supply a customer for this invoice"
+    business:
+      req: "Supply a business for this invoice"
+    subscription:
+      req: "Supply a subscription for this invoice"
+
+  plan:
+    name:
+      req: "A plan name is required"
+      exists: "This name is already in use in your business"
+      placeholder: "Ensure the name is unique and easy to remember"
+      help: "Ensure the name is unique and easy to remember"
+    interval:
+      req: "An interval is required (number of times to charge the customer)"
+      help: "This is number of times to charge the customer"
+    amount:
+      req: "How much are you billing this plan for?"
+      placeholder: "This is how much your clients will pay."
+      help: "This is how much your clients will pay."
+  subs:
+    plan:
+      absent: "You need to select a billing plan for this subscription"
+    customer:
+      active: "This customer has a similar active subscription"
+      absent: "You need to select a customer for this subscription"
+    qty:
+      absent: "The number of units are required"
+    start:
+      absent: "Tell us when we start billing this client"
+      invalid: "Date should be in the future"
+
+  email:
+    blank: "Supply your customers email"
+    exists: "This email is already in use"
+    invalid: "This does not look like an email"
+
+  customer:
+    name:
+      blank: "Supply your customers name"
+    number:
+      blank: "Supply your customers mobile number"
+      exists: "This mobile number is already in use"
+
+  record:
+    error: ''
+    success: 'Your %{value} has been successfully saved.'
+    destroy: "Record has been successfully deleted"
+
+  business:
+    name:
+      req: "We need to know your business name"
+      placeholder: 'My awesome business'
+    fantasy_name:
+      placeholder: "Uniquely"
+      help: "Give a unique nickname to your business"
+      invalid: "It should contain numbers and/or letters."
+      req: "A unique name is required to identify your business"
+      taken: "Somebody else has taken your nickname, choose another one"
+    email:
+      req: "An email address is required for notifications"
+      taken: "Somebody else has taken your email address, choose another one"
+      placeholder: 'user@awesomecompany.com'
+      help: "We shall send you notifications here"
+    number:
+      req: "A phone number is required for SMS notifications"
+      taken: "Somebody else has taken your phone number, choose another one"
+      placeholder: '0700000000'
+      help: "We shall send you SMS notifications using this."

@@ -1,0 +1,10 @@
+<tr>
+  <td><%= plan.try(:identifier) %></td>
+  <td><%= plan.try(:name).try(:upcase) %></td>
+  <td><%= "#{plan.try(:interval_count)} x #{plan.try(:interval).try(:downcase)}" %></td>
+  <td><%= plan.try(:currency) %></td>
+  <td><%= to_ksh plan.try(:amount) %></td>
+  <td><%= long_date plan.try(:created_at) %></td>
+  <td><%= link_to "View", [:edit, @current_business, plan] %></td>
+  <td><%= link_to "Edit", [:edit, @current_business, plan] %></td>
+</tr>

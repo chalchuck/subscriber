@@ -1,0 +1,8 @@
+<tr>
+  <td> <%= customer.try(:identifier) %> </td>
+  <td> <%= customer.try(:name).try(:upcase) %> </td>
+  <td> <%= customer.try(:email) %> </td>
+  <td> <%= customer.try(:mobile_number) %> </td>
+  <td> <%= long_date customer.try(:created_at) %> </td>
+  <td> <%= link_to "Edit", [:edit, @current_business, customer] %> </td>
+</tr>

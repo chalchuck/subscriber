@@ -1,0 +1,18 @@
+<tr>
+  <td><%= coupon.try(:identifier) %></td>
+  <td>
+    <%= coupon.try(:amount_off).present? ? to_ksh(coupon.try(:amount_off)) : "#{coupon.try(:percent_off)}%" %>
+  </td>
+  <td><%= coupon.try(:currency) %></td>
+  <td><%= coupon.try(:duration).try(:upcase) %></td>
+  <td>
+    <% if coupon.try(:active) %>
+      <span class="badge badge-success">Active</span>
+    <% else %>
+      <span class="badge badge-default">Inactive</span>
+    <% end %>
+  </td>
+  <td><%= long_date coupon.try(:created_at) %></td>
+  <td><%= link_to "View", [:edit, @current_business, coupon] %></td>
+  <td><%= link_to "Edit", [:edit, @current_business, coupon] %></td>
+</tr>

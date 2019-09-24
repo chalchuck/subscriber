@@ -1,0 +1,55 @@
+<div class="col-md-12">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="col-md-3">
+        <!-- <div class="card"> -->
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <table class="table table-no-border">
+                <tbody>
+                  <tr>
+                    <td><i class="material-icons">business</i></span></td>
+                    <td><%= @current_business.try(:name) %></td>
+                  </tr>
+                  <tr>
+                    <td><i class="material-icons">extension</i></td>
+                    <td><%= pluralize(@current_business.try(:invoices).count, "invoice") %></td>
+                  </tr>
+                  <tr>
+                    <td><i class="material-icons">donut_large</i></td>
+                    <td><%= pluralize(@current_business.try(:subscriptions).count, "subscription") %></td>
+                  </tr>
+                  <tr>
+                    <td><i class="material-icons">people</i></td>
+                    <td><%= pluralize(@current_business.try(:customers).count, "customer") %></td>
+                  </tr>
+                  <tr>
+                    <td><i class="material-icons">pages</i></span></td>
+                    <td><%= @current_business.try(:fantasy_name) %></td>
+                  </tr>
+                  <tr>
+                    <td><i class="material-icons">call</i></td>
+                    <td><%= @current_business.try(:phone_number) %></td>
+                  </tr>
+                  <tr>
+                    <td><i class="material-icons">mail</i></span></td>
+                    <td><%= @current_business.try(:email) %></td>
+                  </tr>
+                  <tr>
+                    <td><i class="material-icons">code</i></span></td>
+                    <td><%= @current_business.try(:identifier) %></td>
+                  </tr>
+                </tbody>
+              </table>
+
+              <%= link_to [:edit, @current_business], class: "btn btn-success pull-right btn-fab" do  %>
+                  <i class="material-icons">edit</i>
+              <% end %>
+
+            </div>
+          <!-- </div> -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

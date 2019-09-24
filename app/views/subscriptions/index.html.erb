@@ -1,0 +1,44 @@
+<div class="row">
+  <div class="col-sm-12">
+    <div class="panel panel-sky" data-widget='{"draggable": "false"}'>
+      <div class="panel-heading">
+        <h3>SUBSCRIPTIONS</h3>
+      </div>
+
+      <div class="panel-body">
+        <%= page_entries_info @subscriptions %>
+
+        <%= link_to [:new, @current_business, :subscription], class: "pull-right btn btn-success btn-raised" do %>
+          <i class="material-icons">done</i> subscription
+        <% end %>
+      </div>
+
+      <% if @subscriptions.any? %>
+        <div class="infinite-table">
+          <div class="table-responsive">
+            <table class="table table-hover">
+              <tr>
+                <th>SUBSCRIPTION ID</th>
+                <th>CUSTOMER</th>
+                <th>PLAN</th>
+                <th>QUANTITY</th>
+                <th>START</th>
+                <th>CREATED ON</th>
+                <th>STATUS</th>
+                <th></th>
+              </tr>
+
+              <% @subscriptions.each do |subscription| %>
+                <%= render 'subscription', subscription: subscription %>
+              <% end %>
+            </table>
+
+            <div class="pagination">
+              <%= paginate @subscriptions, theme: 'bootstrap4' %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

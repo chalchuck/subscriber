@@ -1,0 +1,11 @@
+<% if subs.active? %>
+	<div class="badge badge-green" ><%= subs.try(:status).try(:capitalize)  %></div>
+<% elsif subs.inactive? %>
+	<div class="badge badge-inverse" ><%= subs.try(:status).try(:capitalize)  %></div>
+<% elsif subs.unpaid? %>
+	<div class="badge badge-lime" ><%= subs.try(:status).try(:capitalize)  %></div>
+<% elsif subs.cancelled? %>
+	<div class="badge badge-orange" ><%= subs.try(:status).try(:capitalize)  %></div>
+<% elsif subs.pastdue? %>
+	<div class="badge badge-danger" ><%= subs.try(:status).try(:capitalize)  %></div>
+<% end %>

@@ -1,0 +1,32 @@
+<%#= page_header "Reset Password" %>
+
+<div class="container" id="login-form" style="margin-top: 9%;">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3>Lets get you a new password</h3>
+        </div>
+        <div class="panel-body">
+
+        	<h4>Enter your email to reset your password</h4>
+
+          <%= simple_form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post, :role => 'form'}) do |f| %>
+            <%= f.input :email, label: false, autofocus: true, placeholder: "Your email" %><br>
+            <br>
+            <div class="clearfix">
+              <a href="<%= url_for([:new, :user, :session]) %>"
+              class="btn btn-default pull-left"><i class="material-icons">done</i>Login</a>
+              <button type="submit" class="btn btn-primary btn-raised pull-right">
+                <i class="material-icons">done</i> Send Reset instructions
+              </button>
+            </div>
+          <% end %>
+        </div>
+        <div class="panel-footer">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

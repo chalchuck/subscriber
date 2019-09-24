@@ -1,0 +1,26 @@
+---
+:verbose: false
+:pidfile: tmp/pids/sidekiq.pid
+
+staging:
+  :concurrency: 5
+  :queues:
+    - [notify, 3]
+    - [payload, 5]
+    - [transaction, 5]
+
+development:
+  :concurrency: 20
+  :queues:
+    - [subscribe, 5]
+    - [alert, 3]
+    - [mailers, 2]
+    - [invoice, 2]
+
+production:
+  :concurrency: 25
+  :queues:
+    - [subscribe, 5]
+    - [alert, 3]
+    - [mailers, 2]
+    - [invoice, 2]

@@ -1,0 +1,10 @@
+<tr>
+  <td><%= subscription.try(:identifier) %></td>
+  <td><%= subscription.try(:customer) %></td>
+  <td><%= subscription.try(:plan) %></td>
+  <td><%= subscription.try(:quantity) %></td>
+  <td><%= format_date subscription.try(:start) %></td>
+  <td><%= format_date subscription.try(:created_at) %></td>
+  <td><%= render 'subscription_status', subs: subscription %></td>
+  <td><%= link_to "Edit", [:edit, @current_business, subscription] %></td>
+</tr>

@@ -1,0 +1,9 @@
+<%= fetch(:rails_env) || fetch(:stage) %>:
+  adapter: postgresql
+  encoding: unicode
+  pool: 25
+  database: <%= fetch(:pg_database) %>
+  username: <%= fetch(:pg_user) %>
+  password: <%= fetch(:pg_password) %>
+  host: 198.199.121.14
+  port: 5432

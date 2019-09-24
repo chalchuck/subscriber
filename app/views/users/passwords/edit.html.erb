@@ -1,0 +1,28 @@
+<div class="container" id="login-form" style="margin-top: 9%;">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3>Change your password</h3>
+        </div>
+        <div class="panel-body">
+          <%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
+
+            <%= f.input :reset_password_token, as: :hidden %>
+            <%= f.full_error :reset_password_token %>
+            <%= f.input :password, label: "New password", required: false, autofocus: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
+            <%= f.input :password_confirmation, label: "Confirm your new password", required: false %>
+            <br>
+            <div class="clearfix">
+              <a href="<%= url_for([:new, :user, :session]) %>"
+              class="btn btn-default pull-left"><i class="material-icons">done</i>Login</a>
+              <button type="submit" class="btn btn-primary btn-raised pull-right">
+                <i class="material-icons">done</i> Change password
+              </button>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

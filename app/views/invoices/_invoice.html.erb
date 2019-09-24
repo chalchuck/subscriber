@@ -1,0 +1,35 @@
+<tr>
+  <td><%= invoice.try(:receipt_number) %></td>
+  <td><%= invoice.try(:identifier) %></td>
+  <td><%= invoice.try(:subscription).try(:identifier) %></td>
+  <td><%= invoice.try(:customer) %></td>
+  <td>
+    <% if invoice.relief.present? %>
+      <%= to_ksh invoice.try(:relief) %>
+      <div class="badge subs-active glyphicon glyphicon-flag"
+      style="cursor:pointer;"
+        button type="button" data-toggle="modal"
+        data-target="#InvoiceRelief"
+        data-whatever="<%= invoice.to_json %>">
+      </div>
+    <% else %>
+      <%= to_ksh invoice.try(:amount_due) %>
+    <% end %>
+  </td>
+  <td><%= to_ksh invoice.try(:paid) %></td>
+  <td><%= to_ksh invoice.try(:balance) %></td>
+  <td>
+    <% if invoice.paid? %>
+      <div class="badge badge-green"><%=invoice.try(:status).try(:capitalize) %></div>
+    <% elsif invoice.unpaid? %>
+      <div class="badge badge-danger"><%=invoice.try(:status).try(:capitalize) %></div>
+    <% elsif invoice.paying? %>
+      <div class="badge badge-lime"><%=invoice.try(:status).try(:capitalize) %></div>
+    <% elsif invoice.pastdue? %>
+      <div class="badge badge-deeporange-"><%=invoice.try(:status).try(:capitalize) %></div>
+    <% elsif invoice.verynew? %>
+      <div class="badge badge-info"><%=invoice.try(:status).try(:capitalize) %></div>
+    <% end %>
+  </td>
+  <td><%= format_date invoice.try(:due_date) %></td>
+</tr>

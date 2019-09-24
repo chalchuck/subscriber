@@ -1,0 +1,6 @@
+check process sidekiq
+  with pidfile <%=fetch(:sidekiq_pid)%>
+  start program = "/usr/bin/sudo -H -u <%=fetch(:user)%> /bin/bash -l -c 'cd /home/deploy/mpayerpie/current/ ; bundle exec sidekiq -e <%=fetch(:stage)%> -C /home/deploy/mpayerpie/current/config/sidekiq.yml -P /home/deploy/mpayerpie/current/tmp/sidekiq.pid -L /home/deploy/mpayerpie/current/log/sidekiq.log -d'" with timeout 90 seconds
+
+  stop program = "/bin/sh -c 'cd <%= fetch(:current_path) %> && kill -s INT `cat /home/deploy/mpayerpie/current/tmp/sidekiq.pid` && rm -f /home/deploy/mpayerpie/current/tmp/sidekiq.pid; exit 0;'" with timeout 90 seconds
+  if totalmem is greater than 200 MB for 2 cycles then restart

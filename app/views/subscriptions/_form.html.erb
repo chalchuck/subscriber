@@ -1,0 +1,11 @@
+<%= f.association :plan, label: false, required: false, autofocus: true, input_html: {class: 'select-plan'} %>
+<%= f.association :customer, label: false, required: false, input_html: {class: 'select-customer'} %>
+<%= f.input :quantity,
+            required: false,
+            placeholder: "1",
+            label: "How many units" %>
+<%= f.input :start,
+            required: false,
+            as: :string,
+            label: "Starting date",
+            input_html: {class: 'singledate'} %>

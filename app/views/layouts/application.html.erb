@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title><%= content_for?(:page_header) ? "#{yield(:page_header)} - Coincycle Subscriptions" : "Coincycle Subscriptions" %></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Coincycle-Subscriptions" %>">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta name="description" content="Coincycle Payments">
+    <meta name="author" content="Coincycle Limited">
+
+    <%= stylesheet_link_tag 'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
+
+    <link href="http://fonts.googleapis.com/css?family=Lato:300,400,400,500&text=@0123456789" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:400,500" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <%= csrf_meta_tags %>
+  </head>
+
+  <body class="animated-content infobar-overlay">
+    <header id="topnav" class="navbar navbar-default navbar-fixed-top" role="banner">
+      <%= render 'layouts/navigation' %>
+    </header>
+    <div id="wrapper">
+      <div id="layout-static">
+        <%- if user_signed_in? %>
+          <%= render 'layouts/sidebar' %>
+        <% end %>
+        <div class="static-content-wrapper">
+          <div class="static-content">
+            <div class="page-content">
+              <%- if user_signed_in? %>
+                <%= render 'layouts/breadcrumbs'  %>
+                <div class="page-heading">
+                </div>
+              <% end %>
+              <div class="container-fluid">
+                <div data-widget-group="group1">
+                  <%= render 'layouts/messages' %>
+                  <%= yield %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

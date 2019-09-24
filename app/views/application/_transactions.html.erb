@@ -1,0 +1,22 @@
+<table class="table table-hover">
+  <tr>
+    <th>SUBSRIPTION ID</th>
+    <th>RECEIPT #</th>
+    <th>TRANSACTION CODE</th>
+    <th>PHONE NUMBER</th>
+    <th>CUSTOMER</th>
+    <th>AMOUNT</th>
+    <th>TRANSACTED ON</th>
+  </tr>
+  <% transactions.each do |transaction| %>
+    <tr>
+      <td><%= transaction.try(:subscription).try(:identifier) %></td>
+      <td><%= transaction.try(:bill_ref_number) %></td>
+      <td><%= transaction.try(:trans_id) %></td>
+      <td><%= transaction.try(:msisdn) %></td>
+      <td><%= transaction.try(:sender) %></td>
+      <td><%= to_ksh transaction.try(:actual_amount) %></td>
+      <td><%= long_date transaction.try(:trans_time) %></td>
+    </tr>
+  <% end %>
+</table>

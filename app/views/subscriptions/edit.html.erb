@@ -1,0 +1,32 @@
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3>Make changes to this subscription</h3>
+      </div>
+
+      <div class="panel-body">
+        <%= simple_form_for([@current_business, @current_subscription]) do |f| %>
+          <%= f.association :plan,
+                                required: false,
+                                autofocus: true,
+                                input_html: {class: 'select-plan'}, disabled: true %>
+              <%= f.association :customer,
+                                required: false,
+                                input_html: {class: 'select-customer'}, disabled: true %>
+
+              <%= f.input :quantity,
+                          required: false,
+                          placeholder: "1",
+                          label: "How many units" %>
+              <%= f.input :start,
+                          required: false,
+                          as: :string,
+                          label: "Starting Date",
+                          input_html: {class: 'singledate'} %>
+          <%= render "form_buttons", placeholder: "subscription" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
